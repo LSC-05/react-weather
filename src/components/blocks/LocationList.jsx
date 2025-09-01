@@ -23,8 +23,8 @@ const cities = [
     url: '/nagoya',
   },
   {
-    title: "London",
-    url: "/london"
+    title: 'London',
+    url: '/london',
   }
 ];
 
