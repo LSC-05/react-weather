@@ -39,6 +39,31 @@ export const extractDataForWeatherBox = (data) => {
   // 風速
   const wind = current.wind.speed;
 
+  const nextData = [];
+  for(var i = 1; i < 4; i++){
+    const d = data.list[i];
+    const t = {};
+
+    const timestamp = d.dt;
+    const time = new Date(timestamp * 1000);
+    const dateTimeString = 
+    time.getDate() + "日" +
+    time.getHours() + "時" ;
+    t["dateTimeString"] = dateTimeString;
+
+    const icon = d.weather[0]["icon"];
+    const iconURL = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    t["iconURL"] = iconURL;
+
+    const pop = Math.round(parseFloat(d.pop));
+    t["pop"] = pop;
+
+    const temp = Math.round(d.main["temp"]);
+    t["temp"] = temp;
+
+    nextData.push(t);
+  }
+
   return {
     city,
     iconURL,
@@ -49,5 +74,6 @@ export const extractDataForWeatherBox = (data) => {
     rain,
     humid,
     wind,
+    nextData,
   };
 };

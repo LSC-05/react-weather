@@ -48,6 +48,7 @@ export const WeatherBox = ({ data }) => {
     rain,
     humid,
     wind,
+    nextData,
   } = extractDataForWeatherBox(data);
 
   return (
@@ -78,6 +79,17 @@ export const WeatherBox = ({ data }) => {
                 <Typography>風速</Typography>
                 <Typography>{wind}M</Typography>
               </Box>
+            </BottomStack>
+            <Divider orientation='horizontal' flexItem/>
+            <BottomStack direction="row">
+              {nextData.map((d, index) => (   
+                <Box key={index}>
+                  <Typography>{d.dateTimeString}</Typography>          
+                  <img src={d.iconURL} width="100%" />            
+                  <Typography>{d.pop}%</Typography>
+                  <Typography>{d.temp}℃</Typography>
+                </Box>
+              ))}
             </BottomStack>
           </MainPaper>
         </Grid>
