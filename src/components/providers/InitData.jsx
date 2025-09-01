@@ -12,11 +12,11 @@ export const InitData = () => {
       if (weatherTokyo !== undefined){
         return;
       }
-      const data = await getWeatherByCityName("Tokyo");
+      const data = await getWeatherByCityName("Okinawa");
       dispatch({
         type: "save",
         payload: {
-          name: "weatherTokyo",
+          name: "weatherOkinawa",
           data: data,
         }
       });
