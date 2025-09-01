@@ -4,12 +4,12 @@ import { DispatchContext } from './DispatchContext';
 import { getWeatherByCityName } from './WeatherAPI';
 
 export const InitData = () => {
-  const {weatherTokyo} = useContext(StateContext);
+  const {weatherOkinawa} = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
 
   useEffect(() => {
     (async ()=>{
-      if (weatherTokyo !== undefined){
+      if (weatherOkinawa !== undefined){
         return;
       }
       const data = await getWeatherByCityName("Okinawa");
