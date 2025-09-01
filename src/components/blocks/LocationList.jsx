@@ -22,6 +22,10 @@ const cities = [
     title: 'Nagoya',
     url: '/nagoya',
   },
+  {
+    title: "London",
+    url: "/london"
+  }
 ];
 
 export const LocationList = ({ handleClose }) => (
